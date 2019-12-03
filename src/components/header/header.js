@@ -1,18 +1,19 @@
 import React from 'react';
 import {Col, Row} from 'reactstrap';
 import {Link} from 'react-router-dom';
+import logo_img from '../../media/logo/Logo.svg'
 import './header.sass';
 
 const Header = () => {
   return(
     <Row>
-    <Col lg="6">
+    <Col lg={{size: 6}}>
            
       <header>
         <ul className="header">
           <li className="header__item">
             <Link to="/">
-              <img src="logo/Logo.svg" alt="logo"></img>
+              <img src={logo_img} alt="logo"></img>
             </Link>
           </li>
           <li className="header__item">
@@ -27,7 +28,7 @@ const Header = () => {
     </Col>   
   </Row>
 
-
+  
   )
 }
 
