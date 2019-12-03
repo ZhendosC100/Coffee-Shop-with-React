@@ -7,9 +7,9 @@ import './header.sass';
 const Header = () => {
   return(
     <Row>
-    <Col lg={{size: 6}}>
+    <Col lg={{size:6}}>
            
-      <header>
+      <header className="center_sect">
         <ul className="header">
           <li className="header__item">
             <Link to="/">

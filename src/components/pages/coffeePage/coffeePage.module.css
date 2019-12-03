@@ -1,0 +1,12 @@
+.banner{
+    height: 260px;
+    background: url('../../../media/img/Coffee_bg.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.banner_pl{
+    height: 260px;
+    background: url('../../../media/img/coffee_bg_2.png') center center no-repeat;
+    background-size: cover;
+}
+    

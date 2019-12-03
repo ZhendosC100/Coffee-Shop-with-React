@@ -14,9 +14,11 @@ export default class App extends Component {
     
       <Router>
         
-         <Route path='/' exact component={MainPage} />
+        <Route path='/' exact component={MainPage} />
          <Route path ='/coffe-page' component={CoffeePage}/>
          <Route path='/our-pleasure' component={OurPleasure}/> 
+        
+         
       
       </Router>
      );
