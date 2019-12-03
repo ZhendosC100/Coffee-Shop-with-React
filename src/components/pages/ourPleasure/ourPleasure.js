@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
-// import Header from '../../header';
+import Header from '../../header';
 import './ourPleasure.scss';
 
-export default class OurPleasure extends Component {
-  render(){
+const OurPleasure = () => {
+  
     return(
       <>
-          {/* <Header/> */}
+          <Header/>
 					<p>OurPleasure page</p>  
       </>
     )
-  }
+  
 }
+
+export default OurPleasure;

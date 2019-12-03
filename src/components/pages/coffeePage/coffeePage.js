@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Header from '../../header';
+// import Header from '../../header';
 import './coffeePage.scss';
 
 export default class CoffeePage extends Component {
