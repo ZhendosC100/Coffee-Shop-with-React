@@ -2,15 +2,17 @@ import React, {Component} from 'react';
 import {Col, Row, Container} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import Header from '../../header';
+import Best from '../../best';
 import Footer from '../../footer';
 import beans_logo from '../../../media/logo/Beans_logo.svg';
-
 import './mainPage.sass';
 import classes from './mainPage.module.css';
 import About from '../../about';
 
 export default class MainPage extends Component {
+
   render(){
+    
     return(
       <>
         <div className={classes.preview}>
@@ -29,39 +31,7 @@ export default class MainPage extends Component {
           </div>
 
           <About/>
-          <section className={classes.best}>
-              <Container>
-                  <div className="title">Our best</div>
-                  <Row>
-                      <Col lg={{size:10, offset:1}}>
-                          <div className="best__wrapper">
-                              <div className="best__item">
-                                  <img src="https://www.sciencenews.org/sites/default/files/main/articles/100315_coffee_opener_NEW_0.jpg" alt="coffee"></img>
-                                  <div className="best__item-title">
-                                      Solimo Coffee Beans 2kg
-                                  </div>
-                                  <div className="best__item-price">10.73$</div>
-                              </div>
-                              <div className="best__item">
-                                  <img src="https://www.sciencenews.org/sites/default/files/main/articles/100315_coffee_opener_NEW_0.jpg" alt="coffee"></img>
-                                  <div className="best__item-title">
-                                      Presto Coffee Beans 1kg
-                                  </div>
-                                  <div className="best__item-price">15.99$</div>
-                              </div>
-                              <div className="best__item">
-                                  <img src="https://www.sciencenews.org/sites/default/files/main/articles/100315_coffee_opener_NEW_0.jpg" alt="coffee"></img>
-                                  <div className="best__item-title">
-                                      AROMISTICO Coffee 1kg
-                                  </div>
-                                  <div className="best__item-price">6.99$</div>
-                              </div>
-                          </div>
-                      </Col>
-                  </Row>
-              </Container>
-          </section>
-
+          <Best/>
           <Footer/>
         </>
     )

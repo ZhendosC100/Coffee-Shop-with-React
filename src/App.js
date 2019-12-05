@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Container} from 'reactstrap';
 import MainPage from './components/pages/mainpage';
 import CoffeePage from './components/pages/coffeePage';
 import OurPleasure from './components/pages/ourPleasure';
@@ -17,9 +16,7 @@ export default class App extends Component {
         <Route path='/' exact component={MainPage} />
          <Route path ='/coffe-page' component={CoffeePage}/>
          <Route path='/our-pleasure' component={OurPleasure}/> 
-        
-         
-      
+
       </Router>
      );
   }

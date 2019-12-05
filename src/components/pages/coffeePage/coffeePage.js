@@ -6,8 +6,12 @@ import coffee_girl from '../../../media/img/coffee_girl.jpg';
 import beans_logo_dark from '../../../media/logo/Beans_logo_dark.svg';
 import classes from './coffeePage.module.css';
 import './coffeePage.sass';
+import ItemListCoffee from '../../itemListCoffee/itemListCoffee';
 
 export default class CoffeePage extends Component {
+
+    
+
   render(){
     return(
       <>
@@ -59,37 +63,7 @@ export default class CoffeePage extends Component {
                     </div>
                 </Col>
             </Row>
-            <Row>
-                <Col lg={{size:10, offset:1}}>
-                    <div className="shop__wrapper">
-                        <div className="shop__item">
-                            <img src="https://www.sciencenews.org/sites/default/files/main/articles/100315_coffee_opener_NEW_0.jpg" alt="coffee"></img>
-                            <div className="shop__item-title">
-                                Solimo Coffee Beans 2kg
-                            </div>
-                            <div className="shop__item-country">Brazil</div>
-                            <div className="shop__item-price">10.73$</div>
-                        </div>
-                        <div className="shop__item">
-                            <img src="https://www.sciencenews.org/sites/default/files/main/articles/100315_coffee_opener_NEW_0.jpg" alt="coffee"></img>
-                            <div className="shop__item-title">
-                                Presto Coffee Beans 1kg
-                            </div>
-                            <div className="shop__item-country">Brazil</div>
-                            <div className="shop__item-price">15.99$</div>
-                        </div>
-                        <div className="shop__item">
-                            <img src="https://hhp-blog.s3.amazonaws.com/2018/07/iStock-673468996.jpg" alt="coffee"></img>
-                            <div className="shop__item-title">
-                                AROMISTICO Coffee 1kg
-                            </div>
-                            <div className="shop__item-country">Brazil</div>
-                            <div className="shop__item-price">6.99$</div>
-                        </div>
-                    
-                    </div>
-                </Col>
-            </Row>
+           <ItemListCoffee/>
         </Container>
     </section>
 
