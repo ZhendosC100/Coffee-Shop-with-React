@@ -3,6 +3,7 @@ import {Col, Row, Container} from 'reactstrap';
 import Header from '../../header';
 import AboutGoods from '../../aboutGoods';
 import AboutBeans from '../../aboutBeans';
+import SearchCoffee from '../../searchCoffee';
 import Footer from '../../footer';
 import coffee_girl from '../../../media/img/coffee_girl.jpg';
 import coffee from '../../../media/img/coffee.png';
@@ -13,37 +14,21 @@ import ItemListCoffee from '../../itemListCoffee/itemListCoffee';
 
 export default class CoffeePage extends Component {
 
-    
+    state = {
+      term: null
+    }
+
+    onUpdateSearch = (term) => {
+      this.setState({
+        term
+      })
+    }
 
   render(){
       const {pleasurePage} = this.props;
       let title = pleasurePage ? "For your pleasure" : "Our Coffee";
       let titleAbout = pleasurePage ? "About our beans" : "About our goods"
-
-    const SearchCoffee = () => {
-        return (
-          <Row>
-          <Col lg={{size:4, offset:2}}>
-            <form action="#" className="shop__search">
-              <label className="shop__search-label" htmlFor="filter">Looking for</label>
-              <input id="filter" type="text" placeholder="start typing here..." className="shop__search-input"></input>
-            </form>
-          </Col>
-          <Col lg={{size:4}}>
-            <div className="shop__filter">
-              <div className="shop__filter-label">
-                Or filter
-              </div>
-              <div className="shop__filter-group">
-                <button className="shop__filter-btn">Brazil</button>
-                <button className="shop__filter-btn">Kenya</button>
-                <button className="shop__filter-btn">Columbia</button>
-              </div>
-            </div>
-          </Col>
-        </Row>
-        )
-    }
+      const {term} = this.state;
 
     return(
       <>
@@ -67,8 +52,8 @@ export default class CoffeePage extends Component {
                 </Col>
             </Row>
             <div className="line"></div>
-            {pleasurePage ? null : <SearchCoffee/>}
-           <ItemListCoffee/>
+            {pleasurePage ? null : <SearchCoffee onUpdateSearch ={this.onUpdateSearch} />}
+           <ItemListCoffee termListCoffee={term} />
         </Container>
     </section>
 

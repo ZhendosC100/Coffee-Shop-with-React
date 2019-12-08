@@ -10,12 +10,14 @@ export default class ItemListCoffee extends Component{
   state = {
     itemCofee: null,
     loading: true,
+    filterPos: null,
     error: false
 }
 
 dataCoffee = new CoffeeService();
 
 componentDidMount(){
+  // const {termListCoffee} = this.props;
   this.dataCoffee.getItemsCoffee()
     .then(res => {
       this.setState({
@@ -23,6 +25,21 @@ componentDidMount(){
         loading: false
       })
     });
+    
+}
+
+componentDidUpdate(prevProps){
+ if(this.props.termListCoffee !== prevProps.termListCoffee){
+    this.filterList();
+    // console.log(this.state.filterPos);
+ } 
+}
+
+filterList = () => {
+  const {termListCoffee} = this.props;
+    this.setState({
+      filterPos: termListCoffee
+    })
 }
 
 componentDidCatch = () => {
@@ -30,11 +47,30 @@ componentDidCatch = () => {
 }
 
  render(){
-    const {loading} = this.state;
-    let content = loading ? <Spinner/> : this.state.itemCofee.map((item, key) => {
+    const {loading, filterPos, itemCofee} = this.state;
+   
+    let content = loading ? <Spinner/> : itemCofee.map((item, key) => {
+    //  console.log(item);
+     let itemFilter; 
+     if (filterPos){
+      for (const keyItem in item){
+        if (item[keyItem] === filterPos){
+         itemFilter = item;
+          return (
+            <CoffeeItem key={key} item={itemFilter}/>
+          )
+        }
+        
+      }
+     } else {
       return (
         <CoffeeItem key={key} item={item}/>
       )
+     } 
+      // return (
+      //   <CoffeeItem key={key} item={item}/>
+      // )
+
     })
 
   return(

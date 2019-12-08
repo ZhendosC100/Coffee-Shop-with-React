@@ -4,7 +4,6 @@ import CoffeePage from './components/pages/coffeePage';
 
 import './App.sass';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-// import Header from './components/header';
 
 
 export default class App extends Component {
