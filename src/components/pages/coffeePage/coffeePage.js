@@ -24,6 +24,8 @@ export default class CoffeePage extends Component {
       })
     }
 
+
+
   render(){
       const {pleasurePage} = this.props;
       let title = pleasurePage ? "For your pleasure" : "Our Coffee";

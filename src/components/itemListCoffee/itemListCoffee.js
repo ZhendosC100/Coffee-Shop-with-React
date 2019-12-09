@@ -10,7 +10,7 @@ export default class ItemListCoffee extends Component{
   state = {
     itemCofee: null,
     loading: true,
-    filterPos: null,
+    filterPos: "",
     error: false
 }
 
@@ -31,7 +31,7 @@ componentDidMount(){
 componentDidUpdate(prevProps){
  if(this.props.termListCoffee !== prevProps.termListCoffee){
     this.filterList();
-    // console.log(this.state.filterPos);
+    
  } 
 }
 
@@ -46,32 +46,49 @@ componentDidCatch = () => {
   this.setState(({error}) => ({error: true, loading: false}));
 }
 
+
+
+searchCoffee = (items, term) => {
+
+
+  if(term.length === 0){
+      return items
+  }
+console.log(items);
+  return items.filter((item)=>{
+    console.log(item);
+      return item.country.indexOf(term) > -1
+ 
+  });
+}
+
+// filterCoffee = (items, filter) => {
+//   if(filter === 'like'){
+//       return items.filter(item => item.like)
+//   } else {
+//       return items
+//   }
+// }
+
+
+
  render(){
     const {loading, filterPos, itemCofee} = this.state;
-   
-    let content = loading ? <Spinner/> : itemCofee.map((item, key) => {
-    //  console.log(item);
-     let itemFilter; 
-     if (filterPos){
-      for (const keyItem in item){
-        if (item[keyItem] === filterPos){
-         itemFilter = item;
-          return (
-            <CoffeeItem key={key} item={itemFilter}/>
-          )
-        }
-        
-      }
-     } else {
-      return (
-        <CoffeeItem key={key} item={item}/>
-      )
-     } 
-      // return (
-      //   <CoffeeItem key={key} item={item}/>
-      // )
 
-    })
+    // console.log(filterPos === '');
+    const visibleCards = this.searchCoffee(itemCofee, filterPos);
+
+    let content = loading ? <Spinner/> : <CoffeeItem cards={visibleCards}/>
+   
+    // let content = loading ? <Spinner/> :  itemCofee.map((item) => {
+    //       const key = Math.floor(Math.random() * (200 - 10)) + 10;
+        
+         
+    //         return (
+    //           <CoffeeItem key={key} item={item}/>
+    //         )
+    //     })
+    
 
   return(
 

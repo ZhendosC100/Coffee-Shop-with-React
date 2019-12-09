@@ -14,12 +14,26 @@ export default class SearchCoffee extends Component {
     this.props.onUpdateSearch(term); 
 }
 
+
+
+clickBrazil = () => {
+  
+  this.setState({
+    term: "Brazil"
+  })
+  const {term} = this.state;
+  this.props.onUpdateSearch(term); 
+  console.log(term);
+}
+
+
+
   render(){
     
       return(
         <Row>
           <Col lg={{size:4, offset:2}}>
-            <form action="#" className="shop__search">
+            <form  action="#" className="shop__search">
               <label className="shop__search-label" htmlFor="filter">Looking for</label>
               <input 
                 id="filter" 
@@ -36,9 +50,9 @@ export default class SearchCoffee extends Component {
                 Or filter
               </div>
               <div className="shop__filter-group">
-                <button className="shop__filter-btn">Brazil</button>
-                <button className="shop__filter-btn">Kenya</button>
-                <button className="shop__filter-btn">Columbia</button>
+                <button onClick = {this.clickBrazil} className="shop__filter-btn">Brazil</button>
+                <button  className="shop__filter-btn">Kenya</button>
+                <button  className="shop__filter-btn">Columbia</button>
               </div>
             </div>
           </Col>
