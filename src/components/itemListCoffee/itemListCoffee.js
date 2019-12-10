@@ -31,7 +31,6 @@ componentDidMount(){
 componentDidUpdate(prevProps){
  if(this.props.termListCoffee !== prevProps.termListCoffee){
     this.filterList();
-    
  } 
 }
 
@@ -54,10 +53,9 @@ searchCoffee = (items, term) => {
   if(term.length === 0){
       return items
   }
-console.log(items);
   return items.filter((item)=>{
-    console.log(item);
-      return item.country.indexOf(term) > -1
+    
+      return item.country.toLowerCase().indexOf(term.toLowerCase()) > -1
  
   });
 }
@@ -75,21 +73,10 @@ console.log(items);
  render(){
     const {loading, filterPos, itemCofee} = this.state;
 
-    // console.log(filterPos === '');
     const visibleCards = this.searchCoffee(itemCofee, filterPos);
 
     let content = loading ? <Spinner/> : <CoffeeItem cards={visibleCards}/>
-   
-    // let content = loading ? <Spinner/> :  itemCofee.map((item) => {
-    //       const key = Math.floor(Math.random() * (200 - 10)) + 10;
-        
-         
-    //         return (
-    //           <CoffeeItem key={key} item={item}/>
-    //         )
-    //     })
     
-
   return(
 
     <Row>

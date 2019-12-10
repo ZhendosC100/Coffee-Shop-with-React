@@ -14,21 +14,35 @@ export default class SearchCoffee extends Component {
     this.props.onUpdateSearch(term); 
 }
 
-
-
-clickBrazil = () => {
-  
-  this.setState({
-    term: "Brazil"
-  })
-  const {term} = this.state;
-  this.props.onUpdateSearch(term); 
-  console.log(term);
-}
-
-
+// onUpdateFilter = (name) => {
+//   const {term} = this.state;
+//   this.setState({term: name});
+// }
 
   render(){
+
+    const button = [
+      {name: "brazil", title: "brazil"},
+      {name: "kenya", title: "kenya"},
+      {name: "Columbia", title: "Columbia"}
+    ]
+
+    const Buttons = () => {
+      return(
+        button.map(({name, title}) => {
+          console.log(name);
+          const key = Math.floor(Math.random()*(200 - 10)) + 10;
+          console.log(key);
+          return(
+            <button  
+              key={key}
+              className="shop__filter-btn"
+              onClick={() => this.props.onUpdateFilter(name)}
+            > {title} </button>
+          )
+        })
+      )
+    }
     
       return(
         <Row>
@@ -50,9 +64,10 @@ clickBrazil = () => {
                 Or filter
               </div>
               <div className="shop__filter-group">
-                <button onClick = {this.clickBrazil} className="shop__filter-btn">Brazil</button>
+                {/* <button  className="shop__filter-btn">Brazil</button>
                 <button  className="shop__filter-btn">Kenya</button>
-                <button  className="shop__filter-btn">Columbia</button>
+                <button  className="shop__filter-btn">Columbia</button> */}
+                <Buttons/>
               </div>
             </div>
           </Col>

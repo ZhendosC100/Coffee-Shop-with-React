@@ -24,7 +24,11 @@ export default class CoffeePage extends Component {
       })
     }
 
-
+    onUpdateFilter = (name) => {
+      this.setState({
+        term: name
+      })
+    }
 
   render(){
       const {pleasurePage} = this.props;
@@ -54,7 +58,7 @@ export default class CoffeePage extends Component {
                 </Col>
             </Row>
             <div className="line"></div>
-            {pleasurePage ? null : <SearchCoffee onUpdateSearch ={this.onUpdateSearch} />}
+            {pleasurePage ? null : <SearchCoffee onUpdateFilter={this.onUpdateFilter} onUpdateSearch ={this.onUpdateSearch} />}
            <ItemListCoffee termListCoffee={term} />
         </Container>
     </section>
